@@ -1,0 +1,24 @@
+{
+  "name": "myshop",
+  "version": "1.0.0",
+  "description": "React shopping cart app",
+  "keywords": [],
+  "homepage": "https://github.com/banksco/MyShop#readme",
+  "bugs": {
+    "url": "https://github.com/banksco/MyShop/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/banksco/MyShop.git"
+  },
+  "license": "ISC",
+  "author": "C. Banks",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
