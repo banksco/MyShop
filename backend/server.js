@@ -4,6 +4,7 @@ import userRoutes from './routes/userRoutes.js'
 import productRoutes from './routes/productRoutes.js'
 import connectDB from './config/db.js'
 import errorrHandler from './middleware/errorMiddleware.js'
+import orderRoutes from './routes/orderRoutes.js'
 
 
 const app = express()
@@ -14,6 +15,7 @@ connectDB()
 app.use(express.json())
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/orders', orderRoutes)
 
 /* Error Handler */
 app.use(errorrHandler)
