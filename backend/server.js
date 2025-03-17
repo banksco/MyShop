@@ -13,7 +13,7 @@ connectDB()
 /* Product Routes API*/
 app.use(express.json())
 app.use('/api/products', productRoutes)
-app.use('api/users', userRoutes)
+app.use('/api/users', userRoutes)
 
 /* Error Handler */
 app.use(errorrHandler)
