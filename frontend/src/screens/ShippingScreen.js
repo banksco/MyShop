@@ -17,16 +17,17 @@ const ShippingScreen = () => {
   const[city, setCity] = useState(shippingAddress.city)
   const[postalCode, setPostalCode] = useState(shippingAddress.postalCode)
   const[country, setCountry] = useState(shippingAddress.country)
+  
 
   // naviagte & dispatch
-  const naviagte = useNavigate()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   // get the event variabe (e), dispatch the action to pass the data as an object
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(saveShippingAddress({address, city, postalCode, country}))
-    naviagte('/payment')
+    navigate('/payment')
   }
 
 return (
