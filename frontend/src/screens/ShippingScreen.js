@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import {Form, Button} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -6,31 +6,22 @@ import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { saveShippingAddress } from '../actions/cartActions'
 
-
 const ShippingScreen = () => {
-
-  // read from the redux store 
   const {shippingAddress} = useSelector((state) => state.cart)
+  const [address, setAddress] = useState(shippingAddress.address)
+  const [city, setCity] = useState(shippingAddress.city)
+  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode)
+  const [country, setCountry] = useState(shippingAddress.country)
 
-  // local state variables to bind to the textbox 
-  const[address, setAddress] = useState(shippingAddress.address)
-  const[city, setCity] = useState(shippingAddress.city)
-  const[postalCode, setPostalCode] = useState(shippingAddress.postalCode)
-  const[country, setCountry] = useState(shippingAddress.country)
-  
-
-  // naviagte & dispatch
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  // get the event variabe (e), dispatch the action to pass the data as an object
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(saveShippingAddress({address, city, postalCode, country}))
     navigate('/payment')
   }
-
-return (
+  return (
     <FormContainer>
        <CheckoutSteps step1 step2 />
        <h1>Shipping</h1>
